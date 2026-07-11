@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View tracklists and release years for popular albums on Spotify UI Clone.">
+  <title>Spotify - Album Details</title>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/player.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <ul class="sidebar-nav-list">
+          <li class="sidebar-logo" style="margin-bottom:8px;">
+            <a href="index.html" style="display:flex; align-items:center; gap:8px;">
+              <svg viewBox="0 0 24 24" width="32" height="32" style="fill: var(--primary);"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.564.387-.86.207-2.377-1.454-5.37-1.782-8.892-.977-.336.074-.668-.138-.745-.474-.074-.335.138-.668.474-.745 3.856-.88 7.15-.503 9.816 1.13.295.18.387.563.207.86zm1.225-2.72c-.227.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.076-1.182-.413.125-.845-.107-.97-.52-.124-.413.108-.847.52-.97 3.664-1.11 8.232-.573 11.36 1.348.367.228.487.707.26 1.074zm.107-2.846C14.54 8.79 9.07 8.607 5.9 9.57c-.496.15-1.02-.132-1.17-.63-.15-.497.13-1.02.63-1.17 3.66-1.11 9.7-1.9 13.78-.667.447.133.693.6.56 1.046-.134.446-.6.692-1.047.56z"/></svg>
+              <span style="font-size:20px; font-weight:800; color:#fff; letter-spacing:-0.5px;">Spotify</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a href="index.html">
+              <svg viewBox="0 0 24 24"><path d="M12.5 3.247a1 1 0 00-1 0L4 7.577V20h5.5v-6h5V20H20V7.577l-7.5-4.33zm6.5 14.753h-3v-6H8v6H5V8.587l7-4.04 7 4.04V18z"/></svg>
+              <span>Home</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a href="search.html">
+              <svg viewBox="0 0 24 24"><path d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.057l4.153 4.154 1.414-1.414-4.154-4.153c1.378-1.611 2.22-3.706 2.22-6.01 0-5.14-4.357-9.278-9.54-9.278zm0 2c4.073 0 7.37 3.255 7.37 7.279s-3.297 7.279-7.37 7.279-7.373-3.255-7.373-7.279 3.3-7.279 7.373-7.279z"/></svg>
+              <span>Search</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Library Section -->
+      <div class="sidebar-section" style="flex-grow: 1; display:flex; flex-direction:column; overflow:hidden;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <a href="library.html" style="display:flex; align-items:center; gap:12px; font-weight:700; color:var(--text-muted);">
+            <svg viewBox="0 0 24 24" width="24" height="24" style="fill:currentColor;"><path d="M3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zM21 2H9a1 1 0 00-1 1v18a1 1 0 001 1h12a1 1 0 001-1V3a1 1 0 00-1-1zm-1 18H10V4h10v16z"/></svg>
+            <span>Your Library</span>
+          </a>
+        </div>
+        <ul class="sidebar-library-list" id="sidebarLibraryList">
+          <!-- Dynamically populated via app.js -->
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main View Panel -->
+    <main class="main-view animate-fade-in" id="albumMainPanel">
+      
+      <!-- Top Sticky Header -->
+      <header class="main-header" style="background-color: transparent;">
+        <div class="header-nav-arrows">
+          <button class="arrow-btn" title="Go Back"><svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg></button>
+          <button class="arrow-btn" title="Go Forward"><svg viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></button>
+        </div>
+        <div class="header-user-profile" id="headerUserProfileBtn">
+          <img class="header-user-avatar" src="" alt="avatar" />
+          <span>Dhanushkumar</span>
+        </div>
+      </header>
+
+      <!-- Album Details Header Banner -->
+      <section class="banner-container" id="albumBannerSection">
+        <!-- Dynamically populated via inline script -->
+      </section>
+
+      <!-- Action Buttons Row -->
+      <div class="playlist-actions-row">
+        <button class="action-play-main-btn" id="albumPlayMainBtn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+      </div>
+
+      <!-- Album Songs Table -->
+      <div class="track-table-container">
+        <table class="track-table">
+          <thead>
+            <tr>
+              <th style="width:50px; text-align:center;">#</th>
+              <th>Title</th>
+              <th style="width:100px; text-align:right; padding-right:24px;">Duration</th>
+            </tr>
+          </thead>
+          <tbody id="albumTracksTableBody">
+            <!-- Dynamically populated via inline script -->
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+
+    <!-- Mobile Fixed Bottom Navigation -->
+    <nav class="mobile-bottom-nav">
+      <a href="index.html" class="mobile-nav-link">
+        <svg viewBox="0 0 24 24"><path d="M12.5 3.247a1 1 0 00-1 0L4 7.577V20h5.5v-6h5V20H20V7.577l-7.5-4.33zm6.5 14.753h-3v-6H8v6H5V8.587l7-4.04 7 4.04V18z"/></svg>
+        <span>Home</span>
+      </a>
+      <a href="search.html" class="mobile-nav-link">
+        <svg viewBox="0 0 24 24"><path d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.057l4.153 4.154 1.414-1.414-4.154-4.153c1.378-1.611 2.22-3.706 2.22-6.01 0-5.14-4.357-9.278-9.54-9.278zm0 2c4.073 0 7.37 3.255 7.37 7.279s-3.297 7.279-7.37 7.279-7.373-3.255-7.373-7.279 3.3-7.279 7.373-7.279z"/></svg>
+        <span>Search</span>
+      </a>
+      <a href="library.html" class="mobile-nav-link">
+        <svg viewBox="0 0 24 24"><path d="M3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zM21 2H9a1 1 0 00-1 1v18a1 1 0 001 1h12a1 1 0 001-1V3a1 1 0 00-1-1z"/></svg>
+        <span>Library</span>
+      </a>
+    </nav>
+
+    <!-- Music Player Fixed Bottom Footer -->
+    <footer class="player-bar">
+      <div class="player-left">
+        <img id="playerArtwork" class="player-artwork" src="" alt="Album Artwork" />
+        <div class="player-track-details">
+          <span id="playerTrackTitle" class="player-track-title">Title</span>
+          <span id="playerTrackArtist" class="player-track-artist">Artist</span>
+        </div>
+        <div class="player-track-actions">
+          <button id="playerHeartBtn" class="player-heart-btn" title="Save to Liked Songs">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </button>
+          <div id="playerVisualizer" class="player-visualizer-container">
+            <div class="vis-bar"></div>
+            <div class="vis-bar"></div>
+            <div class="vis-bar"></div>
+            <div class="vis-bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="player-center">
+        <div class="playback-controls">
+          <button id="playerShuffleBtn" class="control-btn shuffle-btn" title="Shuffle"><svg viewBox="0 0 24 24"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg></button>
+          <button id="playerPrevBtn" class="control-btn" title="Previous"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6L18 18V6z"/></svg></button>
+          <button class="control-btn play-pause-circle play-pause-toggle-btn" title="Play/Pause"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+          <button id="playerNextBtn" class="control-btn" title="Next"><svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg></button>
+          <button id="playerRepeatBtn" class="control-btn repeat-btn" title="Repeat"><svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg></button>
+        </div>
+        <div class="playback-timeline">
+          <span id="playerTimeElapsed" class="time-stamp">0:00</span>
+          <div class="slider-container" id="progressSliderContainer">
+            <div class="slider-track-bg">
+              <div id="playerTimelineFill" class="slider-track-fill" style="width: 0%;"></div>
+              <div id="playerTimelineThumb" class="slider-thumb" style="left: 0%;"></div>
+            </div>
+          </div>
+          <span class="time-stamp" style="width:auto;">3:49</span>
+        </div>
+      </div>
+
+      <div class="player-right">
+        <button class="control-btn" title="Queue"><svg viewBox="0 0 24 24"><path d="M3 15h12v-2H3v2zm0-5h12V8H3v2zm0-5v2h18V5H3zm12 10l6-4-6-4v8z"/></svg></button>
+        <button class="control-btn" title="Mute/Unmute"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg></button>
+        <div class="slider-container" id="volumeSliderContainer" style="width: 100px; flex-grow: 0;">
+          <div class="slider-track-bg">
+            <div id="volumeTrackFill" class="slider-track-fill" style="width: 50%;"></div>
+            <div id="volumeThumb" class="slider-thumb" style="left: 50%;"></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JS Files -->
+  <script src="js/app.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/navigation.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderAlbum();
+    });
+
+    function renderAlbum() {
+      const banner = document.getElementById('albumBannerSection');
+      const tracksBody = document.getElementById('albumTracksTableBody');
+      const mainPlayBtn = document.getElementById('albumPlayMainBtn');
+
+      if (!banner || !tracksBody) return;
+
+      const albumId = localStorage.getItem('selectedAlbumId') || 'leo';
+      const albums = JSON.parse(localStorage.getItem('albumsDb')) || [];
+      const songs = JSON.parse(localStorage.getItem('songsDb')) || [];
+      const playerState = JSON.parse(localStorage.getItem('playerState')) || {};
+
+      const currentAlbum = albums.find(a => a.id === albumId) || albums[0];
+
+      // Render banner
+      banner.innerHTML = `
+        <div class="banner-img-wrapper animate-fade-in">
+          <img src="${currentAlbum.artwork}" alt="${currentAlbum.title}" onerror="this.src='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&h=300&fit=crop'" />
+        </div>
+        <div class="banner-info">
+          <span class="banner-type">ALBUM</span>
+          <h1 class="banner-title">${currentAlbum.title}</h1>
+          <div class="banner-meta">
+            <span class="banner-meta-author">${currentAlbum.artist}</span>
+            <span class="dot-separator"></span>
+            <span>${currentAlbum.year}</span>
+            <span class="dot-separator"></span>
+            <span>${currentAlbum.songs.length} songs</span>
+          </div>
+        </div>
+      `;
+
+      // Play button sync
+      if (mainPlayBtn) {
+        const isAlbumPlaying = playerState.isPlaying && currentAlbum.songs.includes(playerState.currentSongId);
+        mainPlayBtn.innerHTML = isAlbumPlaying ? getPauseSVG() : getPlaySVG();
+      }
+
+      // Render tracks
+      tracksBody.innerHTML = '';
+      currentAlbum.songs.forEach((songId, index) => {
+        const song = songs.find(s => s.id === songId);
+        if (!song) return;
+
+        const isActive = song.id === playerState.currentSongId ? 'active' : '';
+        const rowClass = song.id === playerState.currentSongId ? 'track-row active' : 'track-row';
+
+        const rowHTML = `
+          <tr class="${rowClass}" onclick="playAlbumTrack(${song.id}, [${currentAlbum.songs.join(',')}])">
+            <td class="track-row-num">
+              <span class="track-row-num-val">${index + 1}</span>
+              <svg class="track-row-play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </td>
+            <td>
+              <div class="track-title-col">
+                <div class="track-name-author">
+                  <span class="track-name-title">${song.title}</span>
+                  <span class="track-author-sub">${song.artist}</span>
+                </div>
+              </div>
+            </td>
+            <td style="text-align:right; padding-right:24px;">${song.duration}</td>
+          </tr>
+        `;
+        tracksBody.insertAdjacentHTML('beforeend', rowHTML);
+      });
+
+      // Bind play button click
+      if (mainPlayBtn) {
+        const newPlayBtn = mainPlayBtn.cloneNode(true);
+        mainPlayBtn.parentNode.replaceChild(newPlayBtn, mainPlayBtn);
+
+        newPlayBtn.addEventListener('click', () => {
+          if (currentAlbum.songs.length > 0) {
+            if (currentAlbum.songs.includes(playerState.currentSongId)) {
+              if (typeof togglePlayState === 'function') togglePlayState();
+            } else {
+              if (typeof playSongImmediately === 'function') {
+                playSongImmediately(currentAlbum.songs[0], currentAlbum.songs);
+              }
+            }
+          }
+        });
+      }
+    }
+
+    window.playAlbumTrack = function(songId, queueList) {
+      if (typeof playSongImmediately === 'function') {
+        playSongImmediately(songId, queueList);
+      }
+    }
+
+    function getPlaySVG() {
+      return `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+    }
+
+    function getPauseSVG() {
+      return `<svg viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+/* Responsive Styles - Spotify UI Clone */
+
+/* 1024px and below (Small desktops / tablets landscape) */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 200px;
+  }
+  
+  .track-table th:nth-child(3),
+  .track-table td:nth-child(3) {
+    display: none; /* Hide Album column in song lists */
+  }
+
+  .banner-title {
+    font-size: 52px;
+  }
+
+  .banner-img-wrapper {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+/* 768px and below (Tablets portrait) */
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 72px; /* Sidebar collapses to icons only */
+  }
+
+  .sidebar-nav-item a span,
+  .sidebar-library-list .library-item-info {
+    display: none; /* Hide text, keep icons and thumbnails */
+  }
+
+  .sidebar-nav-item a {
+    justify-content: center;
+    gap: 0;
+  }
+
+  .sidebar-section {
+    padding: 12px 8px;
+  }
+
+  .library-item {
+    justify-content: center;
+    padding: 8px 4px;
+  }
+
+  .track-table th:nth-child(4),
+  .track-table td:nth-child(4) {
+    display: none; /* Hide Date Added column */
+  }
+}
+
+/* 480px and below (Mobile Phones) */
+@media (max-width: 480px) {
+  .app-container {
+    grid-template-areas: 
+      "main"
+      "player";
+    grid-template-columns: 1fr;
+    grid-template-rows: calc(100vh - var(--player-height) - 56px) var(--player-height); /* Account for bottom nav bar */
+  }
+
+  .sidebar {
+    display: none; /* Hide sidebar entirely, bottom nav handles navigation */
+  }
+
+  .main-view {
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .main-header {
+    padding: 16px;
+  }
+
+  .main-content {
+    padding: 16px;
+  }
+
+  .banner-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 16px;
+    gap: 16px;
+  }
+
+  .banner-title {
+    font-size: 36px;
+  }
+
+  .track-table-container {
+    padding: 0 16px 16px;
+  }
+
+  /* Simplify player bar on mobile */
+  .player-right {
+    display: none; /* Hide right utilities */
+  }
+
+  .player-left {
+    width: 60%;
+  }
+
+  .player-center {
+    width: 40%;
+  }
+
+  .playback-timeline {
+    display: none; /* Hide progress bar slider on mobile */
+  }
+
+  .control-btn.shuffle-btn,
+  .control-btn.repeat-btn {
+    display: none; /* Hide secondary controls */
+  }
+
+  /* Add Mobile Sticky Footer Navigation */
+  .mobile-bottom-nav {
+    display: flex !important;
+    position: fixed;
+    bottom: var(--player-height);
+    left: 0;
+    right: 0;
+    height: 56px;
+    background-color: #090909;
+    border-top: 1px solid var(--border-color);
+    justify-content: space-around;
+    align-items: center;
+    z-index: 199;
+  }
+
+  .mobile-nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 10px;
+    gap: 4px;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .mobile-nav-link.active, .mobile-nav-link:hover {
+    color: var(--text-main);
+  }
+
+  .mobile-nav-link svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+}
+
+/* Hidden by default on desktop, shown on mobile */
+.mobile-bottom-nav {
+  display: none;
+}
